@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{%block title%}E-Commerce : HomePage{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+
+    </head>
+    <body>
+        <header>
+        
+            <div id="headLogo">
+                <img href="{% static 'images\logo1.png' %}" alt="logo image"/>
+                <h3>Shop Here</h3>
+            </div>
+            <div id="searchBtn">
+              <form method="get" action="">
+                {% csrf_token %}
+              <input type="search" name="search" placeholder="search products" id="search" list="search"/>
+              <input type="submit" value="search"/>
+            </form>
+            </div>
+            <div id="cart">
+              <img src="{% static 'images\shopping-bag.png' %}"/>
+            </div>
+            {%block userCredentials%}
+            <div id="loginBtn">
+                <a href="http://127.0.0.1:8000/user-login/"><button>Login</button></a>
+            </div>
+            {%endblock%}
+
+        </header>
+{% block home%}
+
+
+        <main>
+        
+          <div class="offers">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="text-offers">
+            <p>
+              offers
+            </p>
+          </div>
+          <div class="text-subHead">
+            <p>Categories</p>
+          </div>
+        <div class="categories">
+          <div class="categories-box" style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )"><a href="#"><img src="{% static 'images/tv.png' %}" /></a></div>
+          <div class="categories-box" style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )"><a href="gadgets.html"><img src="{% static 'images/gadgets.png' %}"/></a></div>
+          <div class="categories-box"style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )"><a href="cloths.html"><img src="{% static 'images/cloths.png' %}"/></a></div>
+          <div class="categories-box"style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )"><a href="furniture.html"><img src="{% static 'images/furniture.png' %}" /></a></div>
+          <div class="categories-box"style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )"><a href="toys.html"><img src="{% static 'images/toys.png' %}" /></a></div>
+          <div class="categories-box"style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )"><a href="shoes.html"><img src="{% static 'images/shoes.png' %}" /></a></div>
+          <div class="categories-box"style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )"><a href="grocery.html"><img src="{% static 'images/grocery.png' %}" /></a></div>
+          <div class="categories-box"style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )"><a href="book.html"><img src="{% static 'images/book.png' %}" /></a></div>
+          </div>
+          <div class="products">
+            {%for item in product%}
+          <div class="items">
+            <div><a href="{%url 'product_detail' item.product_id%}"><img src="{item.product_img}"/></a></div>
+            <div>
+              <p>{{item.product_name}}</p>
+              <p>Rating : 
+                   {{item.rating}} &#11088;
+        
+            </p>
+            
+            
+              <p style="color:green;">Rs.{{item.product_price}}</p>
+              <p>Product Details : {{item.product_description}}</p>
+            </div>
+          </div>
+            {%endfor%}
+          </div>
+        </main>
+        {% endblock  %}
+    </body>
+</html>

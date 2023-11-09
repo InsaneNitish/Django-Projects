@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>E-Commerce : Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+     html {
+  height: 100%;
+  max-width: 100%;
+  background-image: url("{% static 'images/bg-login.jpg' %}");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1;
+   overflow: hidden;
+  padding: 20vh 20vw 20vh 18vw;
+}
+main{
+  width: 60vw;
+  height: 40vh;
+  border-bottom: .1vw solid  white;
+  backdrop-filter: blur(.41vw);
+  padding: 1vw;
+}
+.buttons-1{
+  margin: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-details{
+  display: none;
+}
+.login-details form{
+   display: grid;
+  grid: 4vh 4vh/30vw;  
+  grid-gap: 3vh;
+  padding: 0vw 15vw ;
+  margin-bottom: 3vh;
+}
+.btn{
+  border-radius: 1vw;
+    padding: 1vw 2vw;
+    font-size: 2vh;
+    border: none;
+}
+.clk-btn{
+  border-radius: .5vh;
+  font-size: 2vh;
+  border: none;
+  height: 3vh;
+}
+input{
+  font-size: 2vh;
+   border-radius: .5vh;
+  border: none;
+  background-color: transparent;
+  border-bottom: .2vh solid white;
+  color: white;
+}
+input:hover{
+  outline: none;
+  border: .1vh solid white;
+}
+.login-details #click-login:hover{
+  display: grid;
+}
+.sign-up-form{
+  display: none;
+}
+.sign-up-form form{
+  display: grid;
+  grid: 4vh 4vh 4vh 4vh 4vh/30vw;
+  grid-gap: 3vh;
+  padding: 0vw 15vw ;
+  margin-bottom: 3vh;
+}
+#login{
+  background-color: #3ea2c9;
+    color: white;
+}
+#signup{
+  background-color: #07b38b;
+  color: white;
+}
+.buttons-2{
+   margin-top: 2vh;
+  display: grid;
+  grid: 4vh 4vh 4vh/auto;  
+  grid-gap: 2vh;
+}
+.buttons-1 button:nth-child(1){
+  background-color: #3ea2c9;
+    color: white;
+}
+.buttons-1 button:nth-child(2){
+  background-color: #07b38b;
+  color: white;
+}
+
+.buttons-2 button:nth-child(1){
+  background-color: white;
+    color: black;
+}
+.buttons-2 button:nth-child(2){
+  background-color: #4267B2;
+  color: white;
+}
+.buttons-2 button:nth-child(3){
+  background-color: #000000;
+    color: white;
+}
+
+.buttons-2 button:nth-child(n){
+  padding: 1vh;
+}
+
+
+.btn img{
+  width: 2vh;
+  aspect-ratio: 1;
+  float: left;
+}
+
+b{
+  backdrop-filter: blur(100vw);
+  background-color: transparent;
+  font-size: 1.9vh;
+  color: white;
+}
+.text{
+  display: grid;
+  justify-content: space-around;
+}
+
+  </style>
+  
+</head>
+
+<body>
+    {% block  main%}
+    
+  <main id="m1">
+  <div class="buttons-1">
+    <button class="btn" id="click-login" onclick="login()">Log in</button>
+  </div>
+    <div class="login-details" class="fa fa-Car" id="a1"> 
+     <form action="" method="post"> 
+      {% csrf_token %}
+      <input type="text" placeholder="Enter Username" name="username" required>
+      <input type="password" id="password" placeholder="Password" name="password" required>
+    <input class="clk-btn" id="login" type="submit" value="Log in">
+   </form>
+    </div>
+    
+    <div class="buttons-1">
+      <a href="{% url 'signup' %}" class ="btn" id="click-signup"><button class ="btn" id="click-signup">Sign Up</button></a>
+      </div>
+    
+  </main>
+  {% endblock %}
+  <script>
+     function login() {
+  var a1=document.getElementById("a1");
+ var main=document.getElementsByTagName("main");
+  console.log(a1,main);
+     a1.style.display="block"
+     m1.style.height="60vh"
+ 
+}
+
+
+  </script>
+  
+</body>
+
+  </html>
