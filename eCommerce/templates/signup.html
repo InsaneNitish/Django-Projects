@@ -21,7 +21,7 @@
 }
 main{
   width: 60vw;
-  height: 40vh;
+  height: 60vh;
   border-bottom: .1vw solid  white;
   backdrop-filter: blur(.41vw);
   padding: 1vw;
@@ -32,16 +32,7 @@ main{
     justify-content: center;
     align-items: center;
 }
-.login-details{
-  display: none;
-}
-.login-details form{
-   display: grid;
-  grid: 4vh 4vh/30vw;  
-  grid-gap: 3vh;
-  padding: 0vw 15vw ;
-  margin-bottom: 3vh;
-}
+
 .btn{
     border-radius: 1vw;
     padding: 1vw 2vw;
@@ -66,11 +57,10 @@ input:hover{
   outline: none;
   border: .1vh solid white;
 }
-.login-details #click-login:hover{
-  display: grid;
-}
+
 .sign-up-form{
-  display: none;
+  display: block;
+  height: 80vh;
 }
 .sign-up-form form{
   display: grid;
@@ -79,19 +69,10 @@ input:hover{
   padding: 0vw 15vw ;
   margin-bottom: 3vh;
 }
-#login{
-  background-color: #3ea2c9;
-    color: white;
-}
+
 #signup{
   background-color: #07b38b;
   color: white;
-}
-.buttons-2{
-   margin-top: 2vh;
-  display: grid;
-  grid: 4vh 4vh 4vh/auto;  
-  grid-gap: 2vh;
 }
 .buttons-1 button:nth-child(1){
   background-color: #3ea2c9;
@@ -102,40 +83,13 @@ input:hover{
   color: white;
 }
 
-.buttons-2 button:nth-child(1){
-  background-color: white;
-    color: black;
-}
-.buttons-2 button:nth-child(2){
-  background-color: #4267B2;
-  color: white;
-}
-.buttons-2 button:nth-child(3){
-  background-color: #000000;
-    color: white;
-}
-
-.buttons-2 button:nth-child(n){
-  padding: 1vh;
-}
-
-
-.btn img{
-  width: 2vh;
-  aspect-ratio: 1;
-  float: left;
-}
-
 b{
   backdrop-filter: blur(100vw);
   background-color: transparent;
   font-size: 1.9vh;
   color: white;
 }
-.text{
-  display: grid;
-  justify-content: space-around;
-}
+
 
   </style>
   
@@ -146,7 +100,7 @@ b{
     
   <main id="m1">
   <div class="buttons-1">
-    <button class="btn" id="click-signup" onclick="signup()">Sign up</button>
+    <button class="btn" id="click-signup">Sign up</button>
   </div>
     
     
@@ -171,12 +125,7 @@ b{
   {% endblock %}
   <script>
 
-function signup(){
-   var a2=document.getElementById("a2");  var main=document.getElementsByTagName("main");
-console.log(a2);  
-     a2.style.display="block"
-     m1.style.height="80vh"
-}
+
 
   </script>
   
