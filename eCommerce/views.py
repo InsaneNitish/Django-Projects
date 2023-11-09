@@ -12,8 +12,9 @@ def homepage(request):
 
 @login_required(login_url='login')
 def logged(request,username):
+    product=Product.objects.all()
     userData=User.objects.get(username=username)
-    return render(request,"logged.html",{"userData":userData})
+    return render(request,"logged.html",{"userData":userData,"product":product})
 
 def search(request,key):
     product=Product.objects.get(tag=key)

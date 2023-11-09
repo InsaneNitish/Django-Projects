@@ -10,18 +10,18 @@
         <header>
         
             <div id="headLogo">
-                <img href="{% static 'images\logo1.png' %}" alt="logo image"/>
+                <img href="{% static 'images\apple.png' %}" alt="logo image"/>
                 <h3>Shop Here</h3>
             </div>
             <div id="searchBtn">
-              <form method="get" action="">
+              <form method="Post" action="">
                 {% csrf_token %}
               <input type="search" name="search" placeholder="search products" id="search" list="search"/>
               <input type="submit" value="search"/>
             </form>
             </div>
             <div id="cart">
-              <img src="{% static 'images\shopping-bag.png' %}"/>
+              <img src="{% static 'images\shopping-bag.png' %}" alt="cart logo"/>
             </div>
             {%block userCredentials%}
             <div id="loginBtn">
