@@ -11,12 +11,17 @@ html,body{
 }
 header{
   display: grid;
-  grid: 10vw/auto auto auto auto;
+  grid: 10vw/auto auto auto auto auto;
   grid-gap: 6vw;
   justify-content: center;
   box-shadow: 0vw .8vw 2vw 0vw #bfbfbf; 
   background: black;
   color: white;
+}
+#userName{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 header h3{
   font-size: 3vw;
@@ -117,7 +122,7 @@ header h3{
 
 .products{
   display: grid;
-  grid: repeat(10,30vh)/auto;
+  grid: repeat(10,auto)/50vw;
   grid-gap: 0vw;
   justify-content: space-around;
 }
@@ -125,7 +130,7 @@ header h3{
 .items{
   border-radius: 0vw;
   display: grid;
-  grid: 25vw/auto auto;
+  grid: 25vw/auto auto ;
   grid-gap: 1vw;
 }
 .items:nth-child(n){
@@ -140,10 +145,15 @@ header h3{
   box-sizing: border-box;
   border-radius: 0vw;
   display: grid;
-  grid: 4vw 3vw 3vw 3vw 3vw/45vw;
+  grid: repeat(6,auto)/auto;
 /*   justify-content: space-around; */
 }
 .items div:nth-child(2) p{
+  background: transparent;
+  font-size:2vw;
+  margin: auto;
+}
+.items div:nth-child(2) button{
   background: transparent;
   font-size:2vw;
   margin: auto;
@@ -152,5 +162,7 @@ header h3{
   width: 25vw;
   margin: auto;
 }
+
+
 
 
