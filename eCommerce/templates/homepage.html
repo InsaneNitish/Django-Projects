@@ -4,6 +4,7 @@
     <head>
         <title>{%block title%}E-Commerce : HomePage{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+        <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
 
     </head>
     <body>
@@ -63,7 +64,7 @@
           <div class="products">
             {%for item in product%}
           <div class="items">
-            <div><a href="{%url 'product_detail' item.product_id%}"><img src="{item.product_img}"/></a></div>
+            <div><a href="{%url 'product_detail' item.product_id%}"><img src="book.html"/></a></div>
             <div>
               <p>{{item.product_name}}</p>
               <p>Rating : 
@@ -71,7 +72,7 @@
             </p>
               <p style="color:green;">Rs.{{item.product_price}}</p>
               <p>Product Details : {{item.product_description}}</p>
-              <button>Add to cart</button>
+              <button style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )">Add to cart</button>
             </div>
           </div>
             {%endfor%}

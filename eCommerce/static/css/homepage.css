@@ -122,7 +122,7 @@ header h3{
 
 .products{
   display: grid;
-  grid: repeat(10,auto)/50vw;
+  grid: repeat(10,auto)/80vw;
   grid-gap: 0vw;
   justify-content: space-around;
 }
@@ -157,6 +157,10 @@ header h3{
   background: transparent;
   font-size:2vw;
   margin: auto;
+  padding: 1vw 2vw;
+  font-size: 2vw;
+  border: none;
+  border-radius: 2vw;
 }
 .items div img{
   width: 25vw;
