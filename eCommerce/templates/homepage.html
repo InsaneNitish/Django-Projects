@@ -4,24 +4,25 @@
     <head>
         <title>{%block title%}E-Commerce : HomePage{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+        <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
 
     </head>
     <body>
         <header>
         
             <div id="headLogo">
-                <img href="{% static 'images\logo1.png' %}" alt="logo image"/>
+                <img src="{% static 'images\logo1.png' %}" alt="logo image"/>
                 <h3>Shop Here</h3>
             </div>
             <div id="searchBtn">
-              <form method="get" action="">
+              <form method="Post" action="{%url 'search'%}">
                 {% csrf_token %}
               <input type="search" name="search" placeholder="search products" id="search" list="search"/>
               <input type="submit" value="search"/>
             </form>
             </div>
             <div id="cart">
-              <img src="{% static 'images\shopping-bag.png' %}"/>
+              <img src="{% static 'images\shopping-bag.png' %}" alt="cart logo"/>
             </div>
             {%block userCredentials%}
             <div id="loginBtn">
@@ -36,10 +37,10 @@
         <main>
         
           <div class="offers">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div><img src="{% static 'images/offer1.jpg' %}"/></div>
+            <div><img src="{% static 'images/offer2.jpg' %}"/></div>
+            <div><img src="{% static 'images/offer3.jpg' %}"/></div>
+            <div><img src="{% static 'images/offer4.avif' %}"/></div>
             <div></div>
           </div>
           <div class="text-offers">
@@ -60,25 +61,32 @@
           <div class="categories-box"style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )"><a href="grocery.html"><img src="{% static 'images/grocery.png' %}" /></a></div>
           <div class="categories-box"style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )"><a href="book.html"><img src="{% static 'images/book.png' %}" /></a></div>
           </div>
+
+
+          {% block  products%}
+          
+          
           <div class="products">
             {%for item in product%}
           <div class="items">
-            <div><a href="{%url 'product_detail' item.product_id%}"><img src="{item.product_img}"/></a></div>
-            <div>
+            <div><a href="{%url 'product_detail' item.product_id%}"><img src="{{ item.product_img.url }}
+              "/></a></div>
+            
+              <a href="{%url 'product_detail' item.product_id%}">
               <p>{{item.product_name}}</p>
               <p>Rating : 
                    {{item.rating}} &#11088;
-        
             </p>
-            
-            
               <p style="color:green;">Rs.{{item.product_price}}</p>
               <p>Product Details : {{item.product_description}}</p>
-            </div>
+              <a href="{%url 'add_to_cart' %}"><button style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )">Add to cart</button></a>
+          </a>
+            
           </div>
             {%endfor%}
           </div>
+          {% endblock products %}
         </main>
-        {% endblock  %}
+        {% endblock home %}
     </body>
 </html>

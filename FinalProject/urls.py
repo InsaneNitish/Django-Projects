@@ -22,13 +22,20 @@ import os
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('homepage/',views.homepage,name="homepage"),
+    path('',views.homepage,name="homepage"),
     path('logged/<str:username>/',views.logged,name="logged"),
     path('search/',views.search,name="search"),
     path('product/<int:product_id>/', views.product_detail, name='product_detail'),
     path('user-login/',views.userlogin,name="login"),
     path('logout/',views.LogoutPage,name="logout"),
-    path('signup/',views.signup,name="signup")
+    path('signup/',views.signup,name="signup"),
+    path('cart/',views.add_to_cart,name="add_to_cart"),
+    path('category/gadgets/',views.gadgetslist,name="gadgets"),
+    path('category/shoes/',views.shoeslist,name="shoes"),
+    path('category/cloths/',views.clothslist,name="cloths"),
+    path('category/furniture/',views.furniturelist,name="furniture"),
+    path('category/grocery/',views.grocerylist,name="grocery")
 ]
 
-
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

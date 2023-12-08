@@ -1,0 +1,12 @@
+@media screen and (max-width: 1240px) {
+    header{
+        display: grid;
+        grid: 10vw 10vw/auto auto auto;
+        column-gap: 6vw;
+        row-gap: 0;
+        box-shadow: 0vw .8vw 2vw 0vw #bfbfbf; 
+        background: black;
+        color: white;
+      }
+}
+

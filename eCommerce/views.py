@@ -6,22 +6,31 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from eCommerce.models import *
 
+@login_required(login_url='login')
 def homepage(request):
     product=Product.objects.all()
     return render(request,"homepage.html",{"product":product})
 
 @login_required(login_url='login')
 def logged(request,username):
+    product=Product.objects.all()
     userData=User.objects.get(username=username)
-    return render(request,"logged.html",{"userData":userData})
+    return render(request,"logged.html",{"userData":userData,"product":product})
 
-def search(request,key):
-    product=Product.objects.get(tag=key)
+@login_required(login_url='login')
+def search(request):
+    if request.method=='POST':
+         key=request.POST.get('search')
+    else:
+         return HttpResponse("Enter something to search!")
+    product=Product.objects.filter(product_tag__icontains=key)
     return render(request,"search.html",{"product": product})
 
+@login_required(login_url='login')
 def product_detail(request,product_id):
     product=Product.objects.get(product_id=product_id)
-    return render(request,"product_detail.html",{"product":product})
+    products=Product.objects.all()
+    return render(request,"product_detail.html",{"product":product,"products":products})
 
 @csrf_protect
 def userlogin(request):
@@ -56,4 +65,27 @@ def signup(request):
 def LogoutPage(request):
      logout(request)
      return redirect('homepage')
+
+#listing products category wise 
+def gadgetslist(request):
+     products=Product.objects.filter(product_category__icontain="gadgets")
+     return render(request,"gadgets.html",{{"products" : products}})
+def shoeslist(request):
+     products=Product.objects.filter(product_category__icontain="shoes")
+     return render(request,"shoes.html",{{"products" : products}})
+def clothslist(request):
+     products=Product.objects.filter(product_category__icontain="cloths")
+     return render(request,"cloths.html",{{"products" : products}})
+def furniturelist(request):
+     products=Product.objects.filter(product_category__icontain="furniture")
+     return render(request,"furniture.html",{{"products" : products}})
+def grocerylist(request):
+     products=Product.objects.filter(product_category__icontain="grocery")
+     return render(request,"grocery.html",{{"products" : products}})
+
+
+#add to cart functionality
+def add_to_cart(request):
+     return
+     
 # Create your views here.

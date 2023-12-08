@@ -3,19 +3,25 @@ html,body{
 
   overflow-y: scroll;
 }
-header img{
-  width:9vw;
+#headLogo img{
+  width:8vw;
   aspect-ratio: 1;
   margin: 3vw;
+  border-radius: 40%;
 }
 header{
   display: grid;
-  grid: 10vw/auto auto auto auto;
+  grid: 10vw/auto auto auto auto auto;
   grid-gap: 6vw;
   justify-content: center;
   box-shadow: 0vw .8vw 2vw 0vw #bfbfbf; 
   background: black;
   color: white;
+}
+#userName{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 header h3{
   font-size: 3vw;
@@ -77,7 +83,7 @@ header h3{
 
 .offers{
   display: grid;
-  grid: 20vw/repeat(5,40vw);
+  grid: 15vw/repeat(5,40vw);
 /*   background: #6b6b6b; */
   grid-gap: 3vw;
   justify-content: start;
@@ -90,6 +96,11 @@ header h3{
 }
 .offers div:nth-child(n){
   background: #cfcfcf;
+}
+.offers div:nth-child(n) img{
+  object-fit: contain;
+  max-width: 40vw;
+
 }
 
 .categories{
@@ -116,7 +127,7 @@ header h3{
 
 .products{
   display: grid;
-  grid: repeat(10,30vh)/auto;
+  grid: repeat(auto,auto)/80vw;
   grid-gap: 0vw;
   justify-content: space-around;
 }
@@ -124,7 +135,7 @@ header h3{
 .items{
   border-radius: 0vw;
   display: grid;
-  grid: 25vw/auto auto;
+  grid: 25vw/auto auto ;
   grid-gap: 1vw;
 }
 .items:nth-child(n){
@@ -135,21 +146,58 @@ header h3{
   justify-content: space-around;
 
 }
-.items div:nth-child(2){
+.items a:nth-child(2){
   box-sizing: border-box;
   border-radius: 0vw;
   display: grid;
-  grid: 4vw 3vw 3vw 3vw 3vw/45vw;
+  grid: repeat(6,auto)/auto;
+  text-decoration: none;
+  color: black;
 /*   justify-content: space-around; */
 }
-.items div:nth-child(2) p{
+.items a p{
   background: transparent;
   font-size:2vw;
   margin: auto;
 }
+.items a  a button{
+  background: transparent;
+  font-size:2vw;
+  margin: auto;
+  padding: 1vw 2vw;
+  font-size: 2vw;
+  border: none;
+  border-radius: 2vw;
+}
+
 .items div img{
   width: 25vw;
   margin: auto;
 }
+#product_main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: fit-content;
+  border-radius: 3%;
+  margin: 5vw 3vw;
+  padding: 3vw 4vw;
+  background-image: linear-gradient(169deg, #00cebe ,#0057e0 );
+}
+
+#product_detail p:nth-child(n){
+  background-color: white;
+  border: none;
+  border-radius: 2vw;
+  padding: 2vw 3vw;
+}
+#product_detail button{
+  border: none;
+  border-radius: 1vw;
+  box-shadow: 0 0 2vw 2vw white;
+}
+
+
 
 
