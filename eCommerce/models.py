@@ -6,9 +6,9 @@ class Product(models.Model):
     product_price=models.IntegerField()
     product_description=models.TextField(blank=True)
     rating=models.FloatField()
-    product_img=models.ImageField(upload_to='images/',blank=True,null=True)
-    product_category=models.CharField(max_length=20)
-    product_tag=models.CharField(max_length=30)
+    product_img=models.ImageField(upload_to='product_images/',blank=True,null=True)
+    product_category=models.TextField(max_length=20)
+    product_tag=models.CharField(max_length=50)
     product_id=models.IntegerField()
 
     def __str__(self) -> str:

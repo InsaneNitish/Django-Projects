@@ -1,0 +1,18 @@
+{% extends "homepage.html" %}
+<div id="product_recommend">
+    {%for item in products%}
+  <div class="items">
+    <div><a href="{%url 'product_detail' item.product_id%}"><img src="book.html"/></a></div>
+    
+      <a href="{%url 'product_detail' item.product_id%}">
+      <p>{{item.product_name}}</p>
+      <p>Rating : 
+           {{item.rating}} &#11088;
+    </p>
+      <p style="color:green;">Rs.{{item.product_price}}</p>
+      <button style="background-image: linear-gradient(169deg, #00cebe ,#0057e0 )">Add to cart</button>
+  </a>
+    
+  </div>
+    {%endfor%}
+</div>
